@@ -20,9 +20,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().changeColor(0, "green");
 			},
 			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+				fetch("https://playground.4geeks.com/apis/fake/contact/agenda").then(data => data.json())
+					.then(data => setStore({ "agendas": data }));
 			},
 			changeColor: (index, color) => {
 				//get the store
